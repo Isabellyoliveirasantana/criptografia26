@@ -4,51 +4,85 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Criptografia em Símbolos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="bg-glow glow-1"></div>
-    <div class="bg-glow glow-2"></div>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-grid"></div>
 
     <main class="container">
-      <header class="hero">
-        <span class="badge">Criptografia visual</span>
-        <h1>Gerador de senha e texto em símbolos</h1>
-        <p>
-          Insira uma senha e transforme uma mensagem em uma sequência de símbolos.
-          O sistema também mostra a lógica da criptografia passo a passo.
-        </p>
-      </header>
-
-      <section class="panel">
-        <div class="fields">
-          <label for="password">
-            Senha mestre
-            <input id="password" type="password" placeholder="Digite sua senha..." />
-          </label>
-
-          <label for="message">
-            Mensagem secreta
-            <textarea id="message" rows="5" placeholder="Digite o texto que será criptografado..."></textarea>
-          </label>
+      <header class="hero glass">
+        <div class="hero-copy">
+          <span class="eyebrow">Criptografia visual</span>
+          <h1>Transforme sua senha em um código de símbolos</h1>
+          <p>
+            Proteja sua mensagem com uma chave única, veja como cada letra vira um símbolo e
+            entenda, em tempo real, o processo da criptografia.
+          </p>
         </div>
 
-        <div class="actions">
+        <div class="hero-stats">
+          <div class="stat-card">
+            <span class="stat-label">Símbolos</span>
+            <strong>60+</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Chave</span>
+            <strong>única</strong>
+          </div>
+          <div class="stat-card">
+            <span class="stat-label">Processo</span>
+            <strong>4 passos</strong>
+          </div>
+        </div>
+      </header>
+
+      <section class="workspace glass">
+        <div class="panel-inputs">
+          <div class="input-group">
+            <label for="password">Senha mestre</label>
+            <div class="input-shell">
+              <span class="input-icon">🔐</span>
+              <input id="password" type="password" placeholder="Digite sua senha secreta" />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="message">Mensagem secreta</label>
+            <div class="input-shell textarea-shell">
+              <span class="input-icon">✉️</span>
+              <textarea id="message" rows="5" placeholder="Digite o texto que será transformado..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="button-row">
           <button class="primary" id="encryptBtn" type="button">Criptografar</button>
           <button class="secondary" id="decryptBtn" type="button">Descriptografar</button>
+          <button class="ghost" id="copyBtn" type="button">Copiar</button>
         </div>
       </section>
 
-      <section class="result-grid">
-        <article class="card output-card">
-          <h2>Resultado da criptografia</h2>
+      <section class="results-grid">
+        <article class="result-card glass">
+          <div class="card-header">
+            <h2>Resultado</h2>
+            <span class="tag">Código cifrado</span>
+          </div>
           <div id="result" class="result-box">Seu texto criptografado aparecerá aqui.</div>
         </article>
 
-        <article class="card steps-card">
-          <h2>Explicação passo a passo</h2>
+        <article class="steps-card glass">
+          <div class="card-header">
+            <h2>Passo a passo</h2>
+            <span class="tag alt">Explicação</span>
+          </div>
           <ol id="steps" class="steps-list">
-            <li>Preencha a senha e a mensagem para ver a lógica.</li>
+            <li>Preencha a senha e a mensagem para ver a lógica da criptografia.</li>
           </ol>
         </article>
       </section>

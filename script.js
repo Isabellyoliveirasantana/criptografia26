@@ -10,6 +10,7 @@ const resultBox = document.getElementById("result");
 const stepsList = document.getElementById("steps");
 const encryptBtn = document.getElementById("encryptBtn");
 const decryptBtn = document.getElementById("decryptBtn");
+const copyBtn = document.getElementById("copyBtn");
 
 function getShift(password) {
   const clean = password.trim();
@@ -107,8 +108,6 @@ function handleEncrypt() {
 function handleDecrypt() {
   const text = resultBox.textContent.trim();
   const password = passwordInput.value;
-
-  // Usuário pode colar o texto cifrado manualmente no campo de mensagem e clicar em descriptografar.
   const messageToDecrypt = messageInput.value.trim() || text;
   const decodedMessage = decryptMessage(messageToDecrypt, password);
 
@@ -123,7 +122,29 @@ function handleDecrypt() {
   ]);
 }
 
+async function handleCopy() {
+  const text = resultBox.textContent.trim();
+
+  if (!text || text === "Seu texto criptografado aparecerá aqui." || text === "Preencha a senha e a mensagem.") {
+    return;
+  }
+
+  try {
+    await navigator.clipboard.writeText(text);
+    copyBtn.textContent = "Copiado!";
+    setTimeout(() => {
+      copyBtn.textContent = "Copiar";
+    }, 1200);
+  } catch (error) {
+    copyBtn.textContent = "Erro";
+    setTimeout(() => {
+      copyBtn.textContent = "Copiar";
+    }, 1200);
+  }
+}
+
 encryptBtn.addEventListener("click", handleEncrypt);
 decryptBtn.addEventListener("click", handleDecrypt);
+copyBtn.addEventListener("click", handleCopy);
 
 resultBox.textContent = "Seu texto criptografado aparecerá aqui.";
