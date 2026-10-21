@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criptografia em Símbolos</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+
+    <main class="container">
+      <header class="hero">
+        <span class="badge">Criptografia visual</span>
+        <h1>Gerador de senha e texto em símbolos</h1>
+        <p>
+          Insira uma senha e transforme uma mensagem em uma sequência de símbolos.
+          O sistema também mostra a lógica da criptografia passo a passo.
+        </p>
+      </header>
+
+      <section class="panel">
+        <div class="fields">
+          <label for="password">
+            Senha mestre
+            <input id="password" type="password" placeholder="Digite sua senha..." />
+          </label>
+
+          <label for="message">
+            Mensagem secreta
+            <textarea id="message" rows="5" placeholder="Digite o texto que será criptografado..."></textarea>
+          </label>
+        </div>
+
+        <div class="actions">
+          <button class="primary" id="encryptBtn" type="button">Criptografar</button>
+          <button class="secondary" id="decryptBtn" type="button">Descriptografar</button>
+        </div>
+      </section>
+
+      <section class="result-grid">
+        <article class="card output-card">
+          <h2>Resultado da criptografia</h2>
+          <div id="result" class="result-box">Seu texto criptografado aparecerá aqui.</div>
+        </article>
+
+        <article class="card steps-card">
+          <h2>Explicação passo a passo</h2>
+          <ol id="steps" class="steps-list">
+            <li>Preencha a senha e a mensagem para ver a lógica.</li>
+          </ol>
+        </article>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
